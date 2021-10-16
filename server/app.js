@@ -12,9 +12,11 @@ mongoose.connect(CONNECTION_URL,{
     useUnifiedTopology:true,
 })
 
+const userRoutes = require('./Routes/userContactRoutes')
 
 app.use(cors());
 app.use(express.json({extended:true}));
 app.use(express.urlencoded({ extended:true}));
+app.use(userRoutes)
 
 app.listen(PORT,()=>console.log(`server running on port ${PORT}`));
